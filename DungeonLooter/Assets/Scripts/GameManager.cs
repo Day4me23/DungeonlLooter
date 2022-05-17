@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
         if (instance != null)
             Destroy(gameObject);
         instance = this;
+        DontDestroyOnLoad(gameObject);
     }
     #endregion
 

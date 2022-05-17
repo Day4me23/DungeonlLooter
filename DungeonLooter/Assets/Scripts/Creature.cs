@@ -2,21 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Creature: ScriptableObject
+[System.Serializable]
+public class Creature
 {
-    [SerializeField] new string name;
-    [SerializeField] int level;
-    [SerializeField] int experience;
+    [SerializeField] protected new string name;
+    [SerializeField] protected int level;
+    [SerializeField] protected int experience;
 
-    [SerializeField] int health;
-    [SerializeField] int mana;
-    [SerializeField] int stamina;
-    [SerializeField] int bonus;
-    [SerializeField] int initiative;
+    [SerializeField] protected int health;
+    [SerializeField] protected int mana;
+    [SerializeField] protected int stamina;
+    [SerializeField] protected int bonus;
+    [SerializeField] protected int initiative;
 
-    [SerializeField] Stat str;
-    [SerializeField] Stat dex;
-    [SerializeField] Stat con;
-    [SerializeField] Stat mag;
-    [SerializeField] Stat luck;
+    [SerializeField] protected Stat str;
+    [SerializeField] protected Stat dex;
+    [SerializeField] protected Stat con;
+    [SerializeField] protected Stat mag;
+    [SerializeField] protected Stat luck;
 }
