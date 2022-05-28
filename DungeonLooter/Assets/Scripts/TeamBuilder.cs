@@ -39,19 +39,20 @@ public class TeamBuilder : MonoBehaviour
         players.Add(BuildPlayer(drop2.value, name2.text));
         players.Add(BuildPlayer(drop3.value, name3.text));
         players.Add(BuildPlayer(drop4.value, name4.text));
-        GameManager.instance.player = new Team(players);
+        Save.instance.team = new Team(players);
+        SceneManager.LoadScene("TeamEditor");
     }
 
     private Player BuildPlayer(int playerClass, string name)
     {
         switch (playerClass)
         {
-            case 0:
+            case 0: // rogue
                 return new Player(name, 10, 25, 10, 10, 25, new List<Equipment>());
-            case 1:
-                return new Player(name, 10, 25, 10, 10, 25, new List<Equipment>());
-            case 2:
-                return new Player(name, 10, 25, 10, 10, 25, new List<Equipment>());
+            case 1: // mage
+                return new Player(name, 10, 10, 10, 50, 10, new List<Equipment>());
+            case 2: // warior
+                return new Player(name, 25, 10, 25, 10, 10, new List<Equipment>());
             default:
                 return null;
         }

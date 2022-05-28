@@ -1,11 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
 public class Creature
 {
-    [SerializeField] protected new string name;
+    [SerializeField] protected string name;
+    [SerializeField] protected Sprite art;
+
     [SerializeField] protected int level;
     [SerializeField] protected int experience;
 
@@ -20,4 +20,6 @@ public class Creature
     [SerializeField] protected Stat con;
     [SerializeField] protected Stat mag;
     [SerializeField] protected Stat luck;
+
+    public string GetName() => name;
 }

@@ -2,18 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class Inventory
 {
-    #region Singleton
-    private void Awake()
-    {
-        if (instance != null)
-            Destroy(gameObject);
-        instance = this;
-    }
-    public static Inventory instance;
-    #endregion
-
     int currency;
     List<Item> items = new List<Item>();
 
