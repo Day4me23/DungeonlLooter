@@ -17,6 +17,7 @@ public class TeamBuilder : MonoBehaviour
     public TMP_Dropdown drop4;
     List<Player> players = new List<Player>();
     public List<string> classes = new List<string>(){ "rogue", "mage", "warrior" };
+    public List<Image> background = new List<Image>();
 
 
 
@@ -31,6 +32,11 @@ public class TeamBuilder : MonoBehaviour
         drop2.AddOptions(classes);
         drop3.AddOptions(classes);
         drop4.AddOptions(classes);
+    }
+
+    public void OnImageButtonClick()
+    {
+        Debug.Log("Clicked Image: ");
     }
 
     public void Button_BuildTeam()
