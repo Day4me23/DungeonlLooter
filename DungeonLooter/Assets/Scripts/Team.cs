@@ -7,7 +7,7 @@ public class Team
 {
     public List<Creature> team = new List<Creature>();
     public Creature[,] formation = new Creature[5,2];
-    Inventory inventory;
+    public Inventory inventory;
 
     public void ChangeFormation(Vector2Int pos1, Vector2Int pos2)
     {
@@ -44,9 +44,7 @@ public class Team
     }
     public Team(List<Player> players)
     {
-        for (int i = 0; i < 5; i++)
-            for (int j = 0; j < 2; j++)
-                formation[i, j] = null;
+        inventory = new Inventory();
 
         for (int i = 0; i < players.Count; i++)
             AddPlayer(players[i]);

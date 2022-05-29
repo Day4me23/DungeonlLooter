@@ -17,7 +17,7 @@ public class FormationSlot : MonoBehaviour, IDragHandler, IPointerDownHandler, I
     {
         this.creature = creature;
         RT.localPosition = Vector3.zero;
-        RT.sizeDelta = new Vector2(85,85);
+        RT.sizeDelta = new Vector2(85,85); //NEED TO NOT BE HARDCODED
     }
     private void Start()
     {
@@ -25,6 +25,7 @@ public class FormationSlot : MonoBehaviour, IDragHandler, IPointerDownHandler, I
         group = GetComponent<CanvasGroup>();
         canvas = GetComponentInParent<Canvas>();
     }
+
     public void OnPointerDown(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Left)
@@ -38,13 +39,14 @@ public class FormationSlot : MonoBehaviour, IDragHandler, IPointerDownHandler, I
         }
         if (eventData.button == PointerEventData.InputButton.Right)
         {
-            Debug.Log(creature.GetName());
+            TeamEditor.instance.SelectPlayer((Player)creature);
         }
     }
     
     public void OnDrag(PointerEventData eventData)
     {
-        RT.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        if (eventData.button == PointerEventData.InputButton.Left)
+            RT.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
     public void OnPointerUp(PointerEventData eventData)
     {

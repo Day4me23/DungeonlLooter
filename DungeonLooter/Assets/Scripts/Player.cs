@@ -17,8 +17,8 @@ public class Player : Creature
         this.mag =  new Stat(mag);
         this.luck =  new Stat(luck);
         
-        this.luck.start = luck;
         for (int i = 0; i < equipment.Count; i++)
             stuff.Equip(equipment[i]);
+        stuff = new Stuff();
     }
 }

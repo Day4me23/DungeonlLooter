@@ -12,3 +12,5 @@ public class Stat
         this.start = start;
     }
 }
+
+public enum StatType {strength, dexterity, constitution, magic, luck}
