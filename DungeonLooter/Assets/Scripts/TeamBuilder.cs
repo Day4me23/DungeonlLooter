@@ -39,6 +39,11 @@ public class TeamBuilder : MonoBehaviour
         Debug.Log("Clicked Image: ");
     }
 
+    public void AddMember()
+    {
+
+    }
+
     public void Button_BuildTeam()
     {
         players.Add(BuildPlayer(drop1.value, name1.text));
