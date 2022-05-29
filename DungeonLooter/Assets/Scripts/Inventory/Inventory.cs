@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,14 +14,20 @@ public class Inventory
     }
     public void EquipItem(int index)
     {
-        TeamEditor.instance.GetStuff().Equip((Equipment)items[index]);
+        Equipment equipment = (Equipment)items[index];
+        Player selected = TeamEditor.instance.selected;
+
+        if (!equipment.Criteria(selected))
+            return;
+        selected.stuff.Equip(equipment);
         items.RemoveAt(index);
+
         DestroyInventorySlots();
         CreateInventorySlot();
     }
-    public void RemoveItem(Item item)
+    public void RemoveItem(int index)
     {
-
+        items.RemoveAt(index);
     }
 
     void CreateInventorySlot()
@@ -33,9 +38,7 @@ public class Inventory
             gameObject.transform.SetParent(TeamEditor.instance.inventorySlots);
             gameObject.GetComponent<InventorySlot>().Set(i, this);
         }
-        
     }
-
     void DestroyInventorySlots()
     {
         foreach (Transform child in TeamEditor.instance.inventorySlots)

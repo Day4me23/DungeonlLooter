@@ -47,12 +47,12 @@ public class TeamBuilder : MonoBehaviour
     {
         switch (playerClass)
         {
-            case 0: // rogue
-                return new Player(name, 10, 25, 10, 10, 25, new List<Equipment>());
+            case 0: // rogue 
+                return new Player(name, new int[] { 10, 25, 10, 10, 25 }, new List<Equipment>());
             case 1: // mage
-                return new Player(name, 10, 10, 10, 50, 10, new List<Equipment>());
+                return new Player(name, new int[] { 10, 10, 10, 50, 10 }, new List<Equipment>());
             case 2: // warior
-                return new Player(name, 25, 10, 25, 10, 10, new List<Equipment>());
+                return new Player(name, new int[] { 25, 10, 25, 10, 10 }, new List<Equipment>());
             default:
                 return null;
         }

@@ -8,17 +8,16 @@ public class Player : Creature
     public Stuff stuff;
     
 
-    public Player(string name, int str, int dex, int con, int mag, int luck, List<Equipment> equipment)
+    public Player(string name, int [] stats, List<Equipment> equipment)
     {
         this.name = name;
-        this.str =  new Stat(str);
-        this.dex =  new Stat(dex);
-        this.con =  new Stat(con);
-        this.mag =  new Stat(mag);
-        this.luck =  new Stat(luck);
+
+        for (int i = 0; i < System.Enum.GetNames(typeof(StatType)).Length; i++)
+            this.stats.Add((StatType)i, new Stat(stats[i]));
         
         for (int i = 0; i < equipment.Count; i++)
             stuff.Equip(equipment[i]);
+
         stuff = new Stuff();
     }
 }

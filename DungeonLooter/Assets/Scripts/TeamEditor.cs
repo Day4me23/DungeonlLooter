@@ -12,7 +12,9 @@ public class TeamEditor : MonoBehaviour
     #endregion
 
     public Team team;
-    [SerializeField] Player selected;
+    public Player selected;
+
+    [SerializeField] Text stats;
     public Transform inventorySlots;
     [SerializeField] Text[] equipmentSlots;
     [SerializeField] Transform[] formationSlots;
@@ -29,23 +31,34 @@ public class TeamEditor : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
-        {
-            team.inventory.AddItem(new Equipment(Random.Range(0, 1000).ToString(), Random.Range(0, 1)));
-        }
+            team.inventory.AddItem(new Equipment(Random.Range(0, 1000).ToString(), Random.Range(0, 4)));
 
         try
         {
-            equipmentSlots[0].text = selected.stuff.head.name;
-            equipmentSlots[1].text = selected.stuff.chest.name;
-            equipmentSlots[2].text = selected.stuff.legs.name;
-            equipmentSlots[3].text = selected.stuff.feet.name;
-        }
-        catch (System.Exception)
-        {
+            if (selected != null && selected.stuff.head != null)
+                equipmentSlots[0].text = selected.stuff.head.name;
+            else equipmentSlots[0].text = "";
+            if (selected != null && selected.stuff.chest != null)
+                equipmentSlots[1].text = selected.stuff.chest.name;
+            else equipmentSlots[1].text = "";
+            if (selected != null && selected.stuff.legs != null)
+                equipmentSlots[2].text = selected.stuff.legs.name;
+            else equipmentSlots[2].text = "";
+            if (selected != null && selected.stuff.feet != null)
+                equipmentSlots[3].text = selected.stuff.feet.name;
+            else equipmentSlots[3].text = "";
+        } catch { }
 
+        try
+        { 
+            stats.text = selected.GetName();
+            for (int i = 0; i < System.Enum.GetNames(typeof(StatType)).Length; i++)
+                stats.text += "\n" + ((StatType)i).ToString() + ":" + selected.stats[(StatType)i].GetTotal();
         }
-            
-        
+        catch
+        {
+            stats.text = "";
+        }
     }
     void CreateFormationSlot(Transform parent, Creature creature)
     {
@@ -62,14 +75,8 @@ public class TeamEditor : MonoBehaviour
         ChangeUI();
     }
 
-    public Stuff GetStuff()
-    {
-        return selected.stuff;
-    }
-
     void ChangeUI()
     {
 
     }
-
 }

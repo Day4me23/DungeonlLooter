@@ -5,12 +5,13 @@ using UnityEngine;
 [System.Serializable]
 public class Stat
 { 
-    public int start;
+    private int start;
 
     public Stat(int start)
     {
         this.start = start;
     }
+    public int GetTotal() => start;
 }
 
 public enum StatType {strength, dexterity, constitution, magic, luck}

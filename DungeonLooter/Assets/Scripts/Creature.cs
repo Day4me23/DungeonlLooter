@@ -1,6 +1,7 @@
 using UnityEngine;
+using System.Collections.Generic;
 
-[System.Serializable]
+
 public class Creature
 {
     [SerializeField] protected string name;
@@ -15,11 +16,8 @@ public class Creature
     [SerializeField] protected int bonus;
     [SerializeField] protected int initiative;
 
-    [SerializeField] protected Stat str;
-    [SerializeField] protected Stat dex;
-    [SerializeField] protected Stat con;
-    [SerializeField] protected Stat mag;
-    [SerializeField] protected Stat luck;
+    public Dictionary<StatType, Stat> stats = new Dictionary<StatType, Stat>();
 
     public string GetName() => name;
+    public int GetLevel() => level;
 }

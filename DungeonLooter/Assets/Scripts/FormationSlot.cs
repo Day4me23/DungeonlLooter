@@ -17,7 +17,7 @@ public class FormationSlot : MonoBehaviour, IDragHandler, IPointerDownHandler, I
     {
         this.creature = creature;
         RT.localPosition = Vector3.zero;
-        RT.sizeDelta = new Vector2(85,85); //NEED TO NOT BE HARDCODED
+        RT.sizeDelta = new Vector2(85,85); // NEED TO NOT BE HARDCODED
     }
     private void Start()
     {

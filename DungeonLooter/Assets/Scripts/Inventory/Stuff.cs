@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Stuff
@@ -29,18 +27,18 @@ public class Stuff
                 head = equipment;
                 break;
             case EquipmentType.chest:
-                //if (chest != null || chest.name != "")
-                    //TeamEditor.instance.team.inventory.AddItem(chest);
+                if (chest != null)
+                    TeamEditor.instance.team.inventory.AddItem(chest);
                 chest = equipment;
                 break;
             case EquipmentType.legs:
-                //if (legs != null || legs.name != "")
-                    //TeamEditor.instance.team.inventory.AddItem(legs);
+                if (legs != null)
+                    TeamEditor.instance.team.inventory.AddItem(legs);
                 legs = equipment;
                 break;
             case EquipmentType.feet:
-                //if (feet != null || feet.name != "")
-                    //TeamEditor.instance.team.inventory.AddItem(feet);
+                if (feet != null)
+                    TeamEditor.instance.team.inventory.AddItem(feet);
                 feet = equipment;
                 break;
             case EquipmentType.hand:

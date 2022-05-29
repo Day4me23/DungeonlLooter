@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Team
 {
+    string name;
     public List<Creature> team = new List<Creature>();
     public Creature[,] formation = new Creature[5,2];
     public Inventory inventory;
