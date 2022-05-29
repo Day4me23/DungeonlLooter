@@ -19,6 +19,7 @@ public class Inventory
 
         if (!equipment.Criteria(selected))
             return;
+
         selected.stuff.Equip(equipment);
         items.RemoveAt(index);
 

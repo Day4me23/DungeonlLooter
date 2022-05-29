@@ -31,7 +31,7 @@ public class TeamEditor : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
-            team.inventory.AddItem(new Equipment(Random.Range(0, 1000).ToString(), Random.Range(0, 4)));
+            team.inventory.AddItem(ItemLibrary.GetRandomItem());
 
         try
         {
