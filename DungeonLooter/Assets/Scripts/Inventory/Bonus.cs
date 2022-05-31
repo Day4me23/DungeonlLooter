@@ -35,3 +35,4 @@ public class BonusMisc: Bonus
     public int amount;
 }
 public enum MiscBonus { bonus }
+public enum Rarity { curse, common, uncommon, rare, epic, legendary, special }

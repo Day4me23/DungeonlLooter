@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
+
 [System.Serializable]
 public class Inventory
 {
@@ -12,6 +14,9 @@ public class Inventory
         DestroyInventorySlots();
         CreateInventorySlot();
     }
+    public void SortByName() => items = items.OrderBy(i => i.name).ToList<Item>(); 
+    public void SortByValue() => items = items.OrderBy(i => i.value).ToList<Item>();
+    public void SortByLevel() => items = items.OrderBy(i => i.level).ToList<Item>();
     public void EquipItem(int index)
     {
         Equipment equipment = (Equipment)items[index];

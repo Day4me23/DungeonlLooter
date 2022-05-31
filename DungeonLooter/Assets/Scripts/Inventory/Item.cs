@@ -1,9 +1,9 @@
 using UnityEngine;
+[System.Serializable]
 public class Item
 {
-    public string name;
     public Sprite art;
-    public Rarity rarity;
-    public int value;
+    public string name;
+    public int level; // used for scaling the item
+    public int value; // used for cost of item
 }
-public enum Rarity { curse, common, uncommon, rare, epic, legendary, special }

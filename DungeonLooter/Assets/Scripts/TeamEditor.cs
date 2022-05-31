@@ -33,6 +33,7 @@ public class TeamEditor : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
             team.inventory.AddItem(ItemLibrary.GetRandomItem());
 
+
         try
         {
             if (selected != null && selected.stuff.head != null)
