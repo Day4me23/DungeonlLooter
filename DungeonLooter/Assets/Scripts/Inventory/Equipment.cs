@@ -14,13 +14,13 @@ public class Equipment : Item
     {
 
     }
-    public bool Criteria(Player player)
+    public bool Criteria(Adventurer player)
     {
         for (int i = 0; i < requirements.Count; i++)
         {
             if (requirements[i].GetType() == typeof(RequireStat))
             {
-                if (((RequireStat)requirements[i]).requirement > player.stats[((RequireStat)requirements[i]).stat].GetTotal())
+                if (((RequireStat)requirements[i]).requirement > player.stats[((RequireStat)requirements[i]).stat].GetMax())
                     return false;
             }
             if (requirements[i].GetType() == typeof(RequireLevel))

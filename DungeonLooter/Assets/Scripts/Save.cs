@@ -15,5 +15,6 @@ public class Save : MonoBehaviour
     public static Save instance;
     #endregion
 
-    public Team team;
+    public Team party;
+    public Team enemy;
 }

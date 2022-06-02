@@ -15,7 +15,7 @@ public class TeamBuilder : MonoBehaviour
     public TMP_Dropdown drop2;
     public TMP_Dropdown drop3;
     public TMP_Dropdown drop4;
-    List<Player> players = new List<Player>();
+    List<Adventurer> players = new List<Adventurer>();
     public List<string> classes = new List<string>(){ "rogue", "mage", "warrior" };
     public List<Image> background = new List<Image>();
 
@@ -50,20 +50,20 @@ public class TeamBuilder : MonoBehaviour
         players.Add(BuildPlayer(drop2.value, name2.text));
         players.Add(BuildPlayer(drop3.value, name3.text));
         players.Add(BuildPlayer(drop4.value, name4.text));
-        Save.instance.team = new Team(players);
+        Save.instance.party = new Team(players);
         SceneManager.LoadScene("TeamEditor");
     }
 
-    private Player BuildPlayer(int playerClass, string name)
+    private Adventurer BuildPlayer(int playerClass, string name)
     {
         switch (playerClass)
         {
             case 0: // rogue 
-                return new Player(name, new int[] { 10, 25, 10, 10, 25 }, new List<Equipment>());
+                return new Adventurer(name, new int[] { 10, 25, 10, 10, 25 }, new List<Equipment>());
             case 1: // mage
-                return new Player(name, new int[] { 10, 10, 10, 50, 10 }, new List<Equipment>());
+                return new Adventurer(name, new int[] { 10, 10, 10, 50, 10 }, new List<Equipment>());
             case 2: // warior
-                return new Player(name, new int[] { 25, 10, 25, 10, 10 }, new List<Equipment>());
+                return new Adventurer(name, new int[] { 25, 10, 25, 10, 10 }, new List<Equipment>());
             default:
                 return null;
         }

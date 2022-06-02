@@ -1,14 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 [System.Serializable]
-public class Player : Creature
+public class Adventurer : Creature
 {
     public Stuff stuff;
-    
-
-    public Player(string name, int [] stats, List<Equipment> equipment)
+    public Adventurer(string name, int [] stats, List<Equipment> equipment)
     {
         this.name = name;
 
@@ -19,5 +15,9 @@ public class Player : Creature
             stuff.Equip(equipment[i]);
 
         stuff = new Stuff();
+
+        health = GetMaxHealth();
+        mana = GetMaxMana();
+        stamina = GetMaxStamina();
     }
 }

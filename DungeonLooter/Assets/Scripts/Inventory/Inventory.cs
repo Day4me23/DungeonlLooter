@@ -14,13 +14,13 @@ public class Inventory
         DestroyInventorySlots();
         CreateInventorySlot();
     }
-    public void SortByName() => items = items.OrderBy(i => i.name).ToList<Item>(); 
-    public void SortByValue() => items = items.OrderBy(i => i.value).ToList<Item>();
-    public void SortByLevel() => items = items.OrderBy(i => i.level).ToList<Item>();
+    public void SortByName() => items = items.OrderBy(i => i.name).ToList(); 
+    public void SortByValue() => items = items.OrderBy(i => i.value).ToList();
+    public void SortByLevel() => items = items.OrderBy(i => i.level).ToList();
     public void EquipItem(int index)
     {
-        Equipment equipment = (Equipment)items[index];
-        Player selected = TeamEditor.instance.selected;
+        Equipment equipment = items[index] as Equipment;
+        Adventurer selected = TeamEditor.instance.selected;
 
         if (!equipment.Criteria(selected))
             return;

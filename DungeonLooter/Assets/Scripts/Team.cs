@@ -39,11 +39,16 @@ public class Team
         team.Add(creature);
         formation[pos.x, pos.y] = creature;
     }
+    public Team(Enemy enemy)
+    {
+        team.Add(enemy);
+        formation[0, 0] = enemy;
+    }
     public Team(List<Enemy> enemy)
     {
 
     }
-    public Team(List<Player> players)
+    public Team(List<Adventurer> players)
     {
         inventory = new Inventory();
 

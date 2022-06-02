@@ -39,7 +39,7 @@ public class FormationSlot : MonoBehaviour, IDragHandler, IPointerDownHandler, I
         }
         if (eventData.button == PointerEventData.InputButton.Right)
         {
-            TeamEditor.instance.SelectPlayer((Player)creature);
+            TeamEditor.instance.SelectPlayer((Adventurer)creature);
         }
     }
     

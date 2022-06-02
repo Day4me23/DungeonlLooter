@@ -11,11 +11,11 @@ public class BonusStat: Bonus
 
 public class BonusDMG: Bonus
 {
-    public DamageType type;
+    public DamageType damageType;
     public Resistance resistance;
 }
 public enum DamageType { melee, fire, poison, cold, lightning, radiant, necrotic }
-public enum Resistance { resistant, vulnerable, immune }
+public enum Resistance { resistant, vulnerable, immune, heal }
 
 public class BonusAbility: Bonus
 {

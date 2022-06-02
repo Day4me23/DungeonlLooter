@@ -1,5 +1,6 @@
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TeamEditor : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class TeamEditor : MonoBehaviour
     #endregion
 
     public Team team;
-    public Player selected;
+    public Adventurer selected;
 
     [SerializeField] Text stats;
     public Transform inventorySlots;
@@ -21,7 +22,7 @@ public class TeamEditor : MonoBehaviour
 
     private void Start()
     {
-        team = Save.instance.team;
+        team = Save.instance.party;
 
         for (int i = 0; i < 5; i++)
             for (int j = 0; j < 2; j++)
@@ -32,7 +33,11 @@ public class TeamEditor : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
             team.inventory.AddItem(ItemLibrary.GetRandomItem());
-
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            Save.instance.enemy = new Team(new Enemy("Dude", new int[] { 10, 10, 10, 10, 10 }));
+            SceneManager.LoadScene("Battle");
+        }
 
         try
         {
@@ -54,7 +59,8 @@ public class TeamEditor : MonoBehaviour
         { 
             stats.text = selected.GetName();
             for (int i = 0; i < System.Enum.GetNames(typeof(StatType)).Length; i++)
-                stats.text += "\n" + ((StatType)i).ToString() + ":" + selected.stats[(StatType)i].GetTotal();
+                stats.text += "\n" + ((StatType)i).ToString() + ":" + selected.stats[(StatType)i].GetMax();
+            stats.text += "\nHealth: " + selected.GetHealth();
         }
         catch
         {
@@ -70,7 +76,7 @@ public class TeamEditor : MonoBehaviour
         gameObject.GetComponent<Image>().color = new Color(Random.Range(0, 255), Random.Range(0, 255), Random.Range(0, 255));
     }
 
-    public void SelectPlayer(Player player)
+    public void SelectPlayer(Adventurer player)
     {
         selected = player;
         ChangeUI();
