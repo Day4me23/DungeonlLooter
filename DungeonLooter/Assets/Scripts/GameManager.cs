@@ -14,9 +14,12 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    [SerializeField] GameObject BattleSlotPrefab;
-    [SerializeField] BattleSlot [] SlotsParty;
-    [SerializeField] BattleSlot [] SlotsEnemy;
+    [SerializeField] GameObject battleSlotPrefab;
+    [SerializeField] GameObject emptySlotPrefab;
+    [SerializeField] Slot [] slotsParty;
+    [SerializeField] Slot [] slotsEnemy;
+    [SerializeField] Transform partySlots;
+    [SerializeField] Transform enemySlots;
 
     public Team computer;
     public Team party;
@@ -37,6 +40,7 @@ public class GameManager : MonoBehaviour
         }
 
         SetInitiative();
+        SetFormation();
     }
     void SetInitiative()
     {
@@ -54,6 +58,38 @@ public class GameManager : MonoBehaviour
     }
     void SetFormation()
     {
+        for (int i = 0; i < 2; i++)
+            for (int j = 0; j < 5; j++)
+                if (computer.formation[j,i] == null)
+                {
+                   GameObject slot = Instantiate(emptySlotPrefab, enemySlots);
+                }
+                else
+                {
+                    GameObject slot = Instantiate(battleSlotPrefab, enemySlots);
+                    slot.transform.GetComponent<BattleSlot>().creature = computer.formation[j,i];
+                }
+                
+            
 
+        for (int i = 0; i < 2; i++)
+            for (int j = 0; j < 5; j++)
+                if (party.formation[j,i] == null)
+                {
+                    GameObject slot = Instantiate(emptySlotPrefab, partySlots);
+                }
+                else
+                {
+                    GameObject slot = Instantiate(battleSlotPrefab, partySlots);
+                    slot.transform.GetComponent<BattleSlot>().creature = party.formation[j,i];
+                }
     }
+    public void NextTurn()
+    {
+        Creature creature = turnOrder[0];
+        turnOrder.RemoveAt(0);
+        turnOrder.Add(creature);
+        
+    }
+    public Creature GetCurrentTurn() => turnOrder[0];
 }

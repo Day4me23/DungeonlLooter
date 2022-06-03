@@ -50,10 +50,16 @@ public class FormationSlot : MonoBehaviour, IDragHandler, IPointerDownHandler, I
     }
     public void OnPointerUp(PointerEventData eventData)
     {
+        Transform newParent = eventData.pointerEnter.GetComponent<Transform>();
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            if (eventData.pointerEnter.GetComponent<FormationZone>() != null)
-                transform.SetParent(eventData.pointerEnter.GetComponent<Transform>());
+            if (newParent.GetComponent<FormationZone>() != null)
+            {
+                if (newParent != oldParent)
+                    TeamEditor.instance.EditFormationSlot(oldParent.GetComponent<FormationZone>(), newParent.GetComponent<FormationZone>());
+                transform.SetParent(newParent);
+
+            }
             else transform.SetParent(oldParent);
 
             group.blocksRaycasts = true;

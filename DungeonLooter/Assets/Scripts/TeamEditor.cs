@@ -23,7 +23,7 @@ public class TeamEditor : MonoBehaviour
     private void Start()
     {
         team = Save.instance.party;
-
+        //MAKE DYNAMIC 
         for (int i = 0; i < 5; i++)
             for (int j = 0; j < 2; j++)
                 if (team.formation[i,j] != null)
@@ -74,6 +74,12 @@ public class TeamEditor : MonoBehaviour
         gameObject.GetComponent<FormationSlot>().RT = gameObject.GetComponent<RectTransform>();
         gameObject.GetComponent<FormationSlot>().Setup(creature);
         gameObject.GetComponent<Image>().color = new Color(Random.Range(0, 255), Random.Range(0, 255), Random.Range(0, 255));
+    }
+    public void EditFormationSlot(FormationZone one, FormationZone two)
+    {
+        Creature temp = team.formation[one.column, one.row];
+        team.formation[one.column, one.row] = team.formation[two.column, two.row];
+        team.formation[two.column, two.row] = temp;
     }
 
     public void SelectPlayer(Adventurer player)

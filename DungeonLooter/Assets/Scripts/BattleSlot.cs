@@ -2,7 +2,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class BattleSlot : MonoBehaviour, IPointerClickHandler
+public class BattleSlot : Slot, IPointerClickHandler
 {
     [SerializeField] Image art;
     [SerializeField] Image healthBar;
