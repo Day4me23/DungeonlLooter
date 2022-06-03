@@ -11,7 +11,7 @@ public class Stat
     {
         this.start = start;
     }
-    public int GetTotal() => start;
+    public int GetMax() => start;
 }
 
 public enum StatType {strength, dexterity, constitution, magic, luck}

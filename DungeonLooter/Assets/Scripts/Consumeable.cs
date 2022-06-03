@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Consumeable : MonoBehaviour
+public class Consumeable : Item
 {
-    // Start is called before the first frame update
-    void Start()
+    public Consumeable(string name, Sprite art)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        this.name = name;
+        this.art = art;
     }
 }

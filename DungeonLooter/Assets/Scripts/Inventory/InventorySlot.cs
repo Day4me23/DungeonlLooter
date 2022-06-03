@@ -20,6 +20,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
 
         if (inventory.items[index].art != null)
             GetComponent<Image>().sprite = inventory.items[index].art;
+        else Debug.Log("art = null");
     }
 
 }

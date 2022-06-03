@@ -1320,8 +1320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fff6064714e0a194ea39e2e9f0419e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team:
-    team: []
+  team: {}
   selected:
     name: 
     art: {fileID: 0}
@@ -1332,16 +1331,6 @@ MonoBehaviour:
     stamina: 0
     bonus: 0
     initiative: 0
-    str:
-      start: 0
-    dex:
-      start: 0
-    con:
-      start: 0
-    mag:
-      start: 0
-    luck:
-      start: 0
   stats: {fileID: 1041525251}
   inventorySlots: {fileID: 1857367114}
   equipmentSlots:

@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class Stuff
 {
     public Equipment head;
