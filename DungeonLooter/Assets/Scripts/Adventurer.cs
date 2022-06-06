@@ -16,8 +16,8 @@ public class Adventurer : Creature
 
         stuff = new Stuff();
 
-        health = GetMaxHealth();
-        mana = GetMaxMana();
-        stamina = GetMaxStamina();
+        health = (int)GetMaxHealth();
+        mana = (int)GetMaxMana();
+        stamina = (int)GetMaxStamina();
     }
 }

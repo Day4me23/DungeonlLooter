@@ -24,8 +24,7 @@ public class GameManager : MonoBehaviour
     public Team computer;
     public Team party;
 
-    List<Creature> turnOrder = new List<Creature>();
-    public Creature selected;
+    List<Creature> turnOrder = new List<Creature>(); 
 
     private void Start()
     {
@@ -60,28 +59,31 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < 2; i++)
             for (int j = 0; j < 5; j++)
-                if (computer.formation[j,i] == null)
+                if (computer.formation[j, i] == null)
                 {
-                   GameObject slot = Instantiate(emptySlotPrefab, enemySlots);
+                    GameObject slot = Instantiate(emptySlotPrefab, enemySlots);
+                    slot.transform.GetComponent<EmptySlot>().type = Slot.Type.enemy;
                 }
                 else
                 {
                     GameObject slot = Instantiate(battleSlotPrefab, enemySlots);
-                    slot.transform.GetComponent<BattleSlot>().creature = computer.formation[j,i];
+                    slot.transform.GetComponent<BattleSlot>().creature = computer.formation[j, i];
+                    slot.transform.GetComponent<BattleSlot>().type = Slot.Type.enemy;
                 }
-                
-            
 
         for (int i = 0; i < 2; i++)
             for (int j = 0; j < 5; j++)
-                if (party.formation[j,i] == null)
+                if (party.formation[j, i] == null)
                 {
-                    GameObject slot = Instantiate(emptySlotPrefab, partySlots);
+                    GameObject slot = Instantiate(emptySlotPrefab, partySlots); 
+                    slot.transform.GetComponent<EmptySlot>().type = Slot.Type.friend;
+
                 }
                 else
                 {
                     GameObject slot = Instantiate(battleSlotPrefab, partySlots);
-                    slot.transform.GetComponent<BattleSlot>().creature = party.formation[j,i];
+                    slot.transform.GetComponent<BattleSlot>().creature = party.formation[j, i];
+                    slot.transform.GetComponent<BattleSlot>().type = Slot.Type.friend;
                 }
     }
     public void NextTurn()

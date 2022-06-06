@@ -12,8 +12,8 @@ public class Enemy : Creature
         for (int i = 0; i < System.Enum.GetNames(typeof(StatType)).Length; i++)
             this.stats.Add((StatType)i, new Stat(stats[i]));
 
-        health = GetMaxHealth();
-        mana = GetMaxMana();
-        stamina = GetMaxStamina();
+        health = (int)GetMaxHealth();
+        mana = (int)GetMaxMana();
+        stamina = (int)GetMaxStamina();
     }
 }

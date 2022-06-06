@@ -35,7 +35,7 @@ public class TeamEditor : MonoBehaviour
             team.inventory.AddItem(ItemLibrary.GetRandomItem());
         if (Input.GetKeyDown(KeyCode.B))
         {
-            Save.instance.enemy = new Team(new Enemy("Dude", new int[] { 10, 10, 10, 10, 10 }));
+            Save.instance.enemy = new Team(new Enemy("Dude", new int[] { 100, 100, 100, 100, 100 }));
             SceneManager.LoadScene("Battle");
         }
 

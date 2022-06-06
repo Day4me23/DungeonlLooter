@@ -5,6 +5,10 @@ public class EmptySlot : Slot, IPointerClickHandler
 {
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("Click empty slot.");
+        if (highlight)
+        {
+            Debug.Log("Press empty slot");
+            ActionsManager.instance.selected.Add(this);
+        }
     }
 }
